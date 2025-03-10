@@ -1,0 +1,382 @@
+/*
+Theme Name: Twenty Twenty-Three Child Theme
+Description: Twenty Twenty-Three Child Theme
+Template: twentytwentythree
+Text Domain: ws
+Version: 1.0.0
+Author: Olena Polonska
+License: GNU General Public License
+*/
+
+@font-face {
+    font-family: 'Mulish';
+    src: url('vendors/fonts/Mulish/Mulish-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Spartan';
+    src: url('vendors/fonts/League_Spartan/LeagueSpartan-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('vendors/fonts/Roboto/Roboto-VariableFont_wdth,wght.ttf') format('truetype');
+}
+
+$primary-font-face: 'Mulish', sans-serif;
+$secondary-font-face: 'Spartan', sans-serif;
+$label-font-face: 'Roboto', sans-serif;
+
+$primary-color: #000000;
+$secondary-color: #161B3D;
+$inverse-color: #FFFFFF;
+$lightgray-color: #7B7485;
+$darkgray-color: #BDBDBD;
+$background-pink: #F551FF;
+$background-cyan: #00E6CA;
+$background-blue: #2820FC;
+$background-lightblue: #4039fc;
+
+$small: 768px;
+
+%primary-font {
+	font-family: $primary-font-face;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 28px;
+}
+
+%menu-font {
+	font-family: $secondary-font-face;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 17px;
+	line-height: 1em;
+}
+
+%label-font {
+	font-family: $label-font-face;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 14px;
+	letter-spacing: 0.3px;
+}
+
+%hero-header-font {
+	font-family: $secondary-font-face;
+	font-style: normal;
+	font-weight: 700;
+	font-size: 60px;
+	line-height: 88px;
+	letter-spacing: -0.7px;	
+}
+
+%hero-excerpt-font {
+	font-family: $primary-font-face;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 22px;
+	line-height: 28px;
+}
+
+%header-font {
+	font-family: $primary-font-face;
+	font-style: normal;
+	font-weight: 700;
+	font-size: 40px;
+	line-height: 56px;
+	text-align: center;
+	letter-spacing: -0.4px;
+	text-transform: capitalize;
+}
+
+%info-font {
+	font-family: $primary-font-face;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 21px;
+}
+
+%post-header-font {
+	font-family: $primary-font-face;
+	font-style: normal;
+	font-weight: 700;
+	font-size: 24px;
+	line-height: 34px;
+}
+
+%block-width {
+	width: 1370px;
+	max-width: 100%;
+	margin: 70px 0 0 0;
+}
+
+%label {
+	@extend %label-font;
+	padding: 6px 10px;
+	background: $background-pink;
+	color: $inverse-color !important;	
+}
+
+body {
+	@extend %primary-font;
+	color: $primary-color;
+	background: $inverse-color;
+}
+
+:root :where(.wp-block-post-content a:where(:not(.wp-element-button))) {
+	color: inherit !important;
+	text-decoration: none;
+}
+
+.wp-site-blocks {
+	width: 1370px;
+	max-width: 90%;
+	margin: 0 auto;
+	padding: 0;	
+	display: flex;
+	flex-direction: column;
+}
+
+.ws-header {
+	@extend %menu-font;
+	width: 1170px;
+	max-width: 100%;
+	margin: 0 auto;
+	padding: 30px 0;
+
+	.ws-top-menu {
+		gap: 40px;
+		
+		li {
+			padding: 0;
+		}
+	}
+	
+	.ws-svg {
+		fill: $primary-color;
+		cursor: pointer;
+	}
+}
+
+.ws-hero-block {
+	@extend %block-width;
+	gap: 0;
+	align-items: start;	
+
+	@media screen and (max-width: $small) {
+		flex-wrap: wrap;
+		flex-direction: column-reverse;
+	}
+
+	.ws-hero-block-left {
+		flex: 1 1.6 auto;
+		position: relative;
+		color: $secondary-color;
+
+		.ws-label {
+			@extend %label;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+	
+		.ws-hero-header {
+			@extend %hero-header-font;
+			margin-top: 56px;
+
+			@media screen and (max-width: $small) {
+				font-size: 40px;
+				line-height: 1.2em;
+			}
+		}
+	
+		.ws-hero-excerpt {
+			@extend %hero-excerpt-font;
+			margin-top: 30px;
+
+			@media screen and (max-width: $small) {
+				margin-top: 0;
+			}
+		}	
+	}
+
+	.ws-hero-figure {
+		padding: 42px 0 0 80px;
+
+		@media screen and (max-width: $small) {
+			padding: 20px 0 0 20px;
+			margin-bottom: 20px;
+		}
+
+		img {
+			box-shadow: -80px -42px 0px 0px $background-cyan;
+
+			@media screen and (max-width: $small) {
+				box-shadow: -20px -20px 0px 0px $background-cyan;
+			}
+		}		
+	}
+}
+
+.ws-subscription-block {
+	@extend %block-width;
+	background: $background-blue;
+	border: 1px solid $background-pink;
+	outline: 1px dotted $background-pink;
+	outline-offset: -30px;
+	color: $inverse-color;
+	padding: 32px;
+
+	* {
+		max-width: 100%;
+	}
+
+	.ws-subscription-form {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: start;
+		gap: 4px;
+
+		div {
+			margin-block-start: 0;
+		}
+
+		.gutena-forms-email-field.field-name-email.wp-block-gutena-form-field {
+			border: none !important;
+
+			input {
+				background: $background-lightblue;
+				color: $inverse-color;
+				padding: 4px 10px;
+				font-size: 12px;
+				height: 30px;
+				width: 300px;
+
+				&::placeholder {
+					color: $inverse-color;
+				}			  
+			}
+		}
+
+		.wp-block-button__link.wp-element-button {
+			background: $background-cyan;
+			color: $inverse-color;
+			border: none;
+			padding: 0 20px;
+			font-size: 14px;
+		}
+
+		.wp-block-gutena-form-confirm-msg,
+		.wp-block-gutena-form-error-msg {
+			flex: 100%;
+		}
+	}
+}
+
+.ws-last-posts-block {
+	@extend %block-width;
+	color: $primary-color;
+
+	.ws-last-posts-header {
+		@extend %header-font;
+	}
+
+	.ws-latest-posts-list {
+		margin-top: 24px;
+		display: grid;
+		grid-template-columns: auto auto;
+		grid-column-gap: 30px;
+		grid-row-gap: 68px;
+
+		@media screen and (max-width: $small) {
+			grid-template-columns: repeat(1, 1fr);
+		}
+
+		li {
+			margin: 0;
+			width: 100%;
+			display: grid;
+			flex-wrap: wrap;
+			grid-template-columns: 50% 50%;
+			align-items: start;
+			gap: 40px;
+
+			@media screen and (max-width: $small) {
+				grid-template-columns: repeat(1, 1fr);
+				gap: 0;
+			}		
+
+			figure {
+				padding: 16px 0 0 16px;
+
+				img {
+					box-shadow: -16px -16px 0px 0px $background-cyan;
+					display: block;
+					margin: 0 auto;
+				}
+			}
+
+			aside {
+				.ws-label {
+					@extend %label;
+					margin-top: 16px;
+					display: inline-block;
+				}
+
+				h1 {
+					@extend %post-header-font;
+					color: $secondary-color;
+					margin-top: 16px;
+				}
+
+				.post-attributes {
+					margin-top: 14px;
+					@extend %info-font;
+					color: $lightgray-color;
+					display: flex;
+					justify-content: start;
+					gap: 16px;
+
+					.ws-svg {
+						fill: $lightgray-color;
+					}					
+				}
+
+				.ws-post-excerpt {
+					margin-top: 16px;
+					@extend %primary-font;
+					color: $secondary-color;
+				}
+
+				.ws-post-author {
+					margin-top: 10px;
+					@extend %primary-font;
+					color: $darkgray-color;
+
+					img {
+						border-radius: 50%;
+					}
+				}
+			}
+		}
+	}
+	.show-all-posts {
+		padding: 4px 40px;
+		background: $background-blue;
+		color: $inverse-color !important;
+	}
+}
+
+:root :where(.wp-element-button, .wp-block-button__link) {
+	background-color: $background-blue;
+	color: $inverse-color;
+}
+
+:root :where(.wp-element-button:active, .wp-block-button__link:active),
+:root :where(.wp-element-button:hover, .wp-block-button__link:hover) {
+	background-color: $secondary-color;
+}

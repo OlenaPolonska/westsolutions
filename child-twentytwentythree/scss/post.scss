@@ -1,0 +1,40 @@
+@use 'base' as base;
+
+.ws-single-header.has-global-padding {
+    position: relative;
+    padding: 0;
+
+    .ws-single-categories {
+        position: absolute;
+        top: 20px;
+        left: 0;
+        z-index: 9;
+        padding: 10px 40px;
+        background: base.$background-pink;
+
+        a {
+            color: base.$inverse-color;
+        }
+    }
+}
+
+.wp-block-post-title {
+    @extend %hero-header-font;
+    color: base.$secondary-color;
+}
+
+.ws-post-meta, 
+.ws-post-meta a {
+    color: base.$lightgray-color !important;
+}
+
+.ws-post-categories {
+    gap: 4px;
+}
+
+.single-post .is-layout-constrained > .alignwide,
+.single-post .wp-block-separator.has-alpha-channel-opacity.is-style-wide {
+    border-color: base.$lightgray-color;
+    color: base.$lightgray-color;
+}
+
